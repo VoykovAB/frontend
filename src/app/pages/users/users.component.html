@@ -1,0 +1,25 @@
+
+<h1>Hello</h1>
+<form [formGroup]="formGroup">
+    id:{{current_id}}
+    <input type="text" formControlName="first_name" placeholder="first_name">
+    <input type="text" formControlName="last_name" placeholder="last_name">
+    <input type="text" formControlName="email" placeholder="email">
+    <input type="text" formControlName="_id" hidden>
+    <button *ngIf="current_id=='new'" class="btn-success" (click)="createUser()">Create</button>
+    <button *ngIf="current_id!='new'" class="btn-success" (click)="updateUser()">Update</button>
+</form>
+<table>
+    <tr *ngFor="let user of users; let i = index;" class="{{ colors[ i%(colors.length-1) ] }}">
+        <td>{{i}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-success" (click)="userToUpdate(user, i)">Edit</button>
+        </td>
+    </tr>
+</table>
