@@ -9,6 +9,7 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class ApiService {
 
+    // public url = 'http://localhost:4444/users';
     public url = 'http://backend-voykovab.eu-4.evennode.com/users';
 
     constructor(private http: HttpClient) {
@@ -23,7 +24,7 @@ export class ApiService {
     }
 
     public put(data: any): Observable<any> {
-        return this.http.put(this.url, data)
+        return this.http.put(this.url + '/' + data._id, data)
             .pipe(
                 tap(heroes => console.log('fetched "' + this.url + '"')),
                 catchError(this.handleError(this.url, []))
@@ -39,7 +40,7 @@ export class ApiService {
     }
 
     public delete(data: any): Observable<any> {
-        return this.http.delete(this.url, data)
+        return this.http.delete(this.url + '/' + data._id, data)
             .pipe(
                 tap(heroes => console.log('fetched "' + this.url + '"')),
                 catchError(this.handleError(this.url, []))

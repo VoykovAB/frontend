@@ -14,12 +14,12 @@
                            formControlName="first_name" required minlength="4">
 
 
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback" *ngIf="first_name.errors">
                         <div *ngIf="first_name.errors.required">
-                            Name is required.
+                            First Name is required.
                         </div>
                         <div *ngIf="first_name.errors.minlength">
-                            Name must be at least 4 characters long.
+                            First Name must be at least 4 characters long.
                         </div>
                     </div>
                 </div>
@@ -32,12 +32,12 @@
                            [class.is-invalid]="last_name.invalid && (last_name.dirty || last_name.touched)"
                            formControlName="last_name" required minlength="4">
 
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback" *ngIf="last_name.errors">
                         <div *ngIf="last_name.errors.required">
-                            Name is required.
+                            Last Name is required.
                         </div>
                         <div *ngIf="last_name.errors.minlength">
-                            Name must be at least 4 characters long.
+                            Last Name must be at least 4 characters long.
                         </div>
                     </div>
                 </div>
@@ -50,12 +50,12 @@
                            [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
                            required minlength="4">
 
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback" *ngIf="email.errors">
                         <div *ngIf="email.errors.required">
-                            Name is required.
+                            Email is required.
                         </div>
                         <div *ngIf="email.errors.minlength">
-                            Name must be at least 4 characters long.
+                            Email must be at least 4 characters long.
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
             <input type="text" formControlName="_id" hidden>
         </div>
         <div class="card-footer text-right">
-            <button *ngIf="current_id=='new'" class="btn btn-primary" (click)="createUser()">Create</button>
-            <button *ngIf="current_id!='new'" class="btn btn-success" (click)="updateUser()">Update</button>
+            <button *ngIf="current_id=='new'" class="btn btn-primary" (click)="createUser()" [disabled]="formGroup.pristine">Create</button>
+            <button *ngIf="current_id!='new'" class="btn btn-success" (click)="updateUser()" [disabled]="formGroup.pristine">Update</button>
             <button class="btn btn-dark" (click)="resetForm()">Reset</button>
         </div>
     </div>

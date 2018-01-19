@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
     public current_id = 'new';
 
     constructor(private _api: ApiService,
-                private formBuilder: FormBuilder,) {
+                private formBuilder: FormBuilder) {
 
     }
 
