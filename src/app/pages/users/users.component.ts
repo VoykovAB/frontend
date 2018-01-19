@@ -128,6 +128,8 @@ export class UsersComponent implements OnInit {
     }
 
     public userToUpdate(user: IUser, id: number) {
+        this.resetForm();
+
         this.formGroup.get('first_name').setValue(user.first_name);
         this.formGroup.get('last_name').setValue(user.last_name);
         this.formGroup.get('email').setValue(user.email);
