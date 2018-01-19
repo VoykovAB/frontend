@@ -7,7 +7,7 @@ process.on('uncaughtException', function (error) {
     console.log(error.stack);
 });
 
-app.use('/', express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist'));
 app.use('*', (req, res) => {
     res.sendFile(__dirname + '/dist/index.html');
 });
