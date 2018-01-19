@@ -9,40 +9,40 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class ApiService {
 
-    public url = 'http://localhost:4444/';
+    public url = 'http://backend-voykovab.eu-4.evennode.com/users';
 
-    constructor (
-        private http: HttpClient
-    ) {}
-
-    public post(url: string, data: any): Observable<any> {
-        return this.http.post(this.url + url, data)
-            .pipe(
-                tap(heroes => console.log('fetched "' + url + '"')),
-                catchError(this.handleError(url, []))
-            );
+    constructor(private http: HttpClient) {
     }
-    public put(url: string, data: any): Observable<any> {
-        return this.http.put(this.url + url, data)
+
+    public post(data: any): Observable<any> {
+        return this.http.post(this.url, data)
             .pipe(
-                tap(heroes => console.log('fetched "' + url + '"')),
-                catchError(this.handleError(url, []))
+                tap(heroes => console.log('fetched "' + this.url + '"')),
+                catchError(this.handleError(this.url, []))
             );
     }
 
-    public get(url): Observable<any> {
-        return this.http.get(this.url + url)
+    public put(data: any): Observable<any> {
+        return this.http.put(this.url, data)
             .pipe(
-                tap(heroes => console.log('fetched "' + url + '"')),
-                catchError(this.handleError(url, []))
+                tap(heroes => console.log('fetched "' + this.url + '"')),
+                catchError(this.handleError(this.url, []))
             );
     }
 
-    public delete(url, data: any): Observable<any> {
-        return this.http.delete(this.url + url, data)
+    public get(): Observable<any> {
+        return this.http.get(this.url)
             .pipe(
-                tap(heroes => console.log('fetched "' + url + '"')),
-                catchError(this.handleError(url, []))
+                tap(heroes => console.log('fetched "' + this.url + '"')),
+                catchError(this.handleError(this.url, []))
+            );
+    }
+
+    public delete(data: any): Observable<any> {
+        return this.http.delete(this.url, data)
+            .pipe(
+                tap(heroes => console.log('fetched "' + this.url + '"')),
+                catchError(this.handleError(this.url, []))
             );
     }
 
@@ -52,7 +52,7 @@ export class ApiService {
      * @param operation - name of the operation that failed
      * @param result - optional value to return as the observable result
      */
-    private handleError<T> (operation = 'operation', result?: T) {
+    private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
             // TODO: send the error to remote logging infrastructure

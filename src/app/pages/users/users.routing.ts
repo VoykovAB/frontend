@@ -1,5 +1,5 @@
-import { Routes, RouterModule } from '@angular/router';
-import { ModuleWithProviders } from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
 import {UsersComponent} from './users.component';
 
 export const routes: Routes = [

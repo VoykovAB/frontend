@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {UsersComponent} from './users.component';
-import { routing } from './users.routing';
+import {routing} from './users.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
@@ -12,8 +12,7 @@ import {CommonModule} from '@angular/common';
         CommonModule
     ],
 
-    providers: [
-    ],
+    providers: [],
 
     declarations: [
         UsersComponent

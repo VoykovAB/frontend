@@ -1,5 +1,5 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {NgModule} from '@angular/core';
 
 const routes: Routes = [
     {
@@ -17,10 +17,8 @@ const routes: Routes = [
     imports: [
         RouterModule.forRoot(routes)
     ],
-    providers: [
-    ],
+    providers: [],
     exports: [RouterModule]
 })
 export class AppRoutesModule {
-
 }
